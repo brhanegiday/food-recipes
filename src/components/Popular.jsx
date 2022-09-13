@@ -42,8 +42,8 @@ function Popular() {
   }, []);
 
   return (
-    <div className='my-12'>
-      <h1 className='pb-6 text-3xl'>Popular picks</h1>
+    <div>
+      <h1 className='pb-6 text-2xl'>Popular picks</h1>
       {loading && <div>A moment please...</div>}
       {error && (
         <div>{`There is a problem fetching the post data - ${error}`}</div>
@@ -55,6 +55,14 @@ function Popular() {
           arrows: false,
           pagination: false,
           drag: 'free',
+          breakpoints: {
+            640: {
+              perPage: 2,
+            },
+            950: {
+              perPage: 3,
+            },
+          },
         }}
       >
         {popularRecipes &&
