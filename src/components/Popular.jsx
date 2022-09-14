@@ -42,7 +42,7 @@ function Popular() {
   }, []);
 
   return (
-    <div>
+    <div className='pt-4'>
       <h1 className='pb-6 text-2xl'>Popular picks</h1>
       {loading && <div>A moment please...</div>}
       {error && (
