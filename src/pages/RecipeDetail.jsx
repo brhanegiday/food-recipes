@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useParams } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 function RecipeDetail() {
   const [recipeDetail, setRecipeDetail] = useState({});
@@ -47,21 +48,27 @@ function RecipeDetail() {
   console.log('recipeDetail', recipeDetail);
 
   return (
-    <div className='py-5'>
+    <motion.div
+      className='py-5'
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.3 }}
+    >
       {loading && <div>A moment please...</div>}
       {error && (
         <div>{`There is a problem fetching the post data - ${error}`}</div>
       )}
-      <div className='grid grid-cols-2 gap-x-10'>
+      <div className='grid grid-cols-1 lg:grid-cols-2 gap-x-10'>
         <div>
-          <h2 className='font-semibold text-2xl'>{recipeDetail.title}</h2>
+          <h2 className='font-semibold text-2xl pb-4'>{recipeDetail.title}</h2>
           <img
             className='w-full object-cover overflow-hidden h-[30rem] rounded-lg'
             src={recipeDetail.image}
             alt={recipeDetail.title}
           />
         </div>
-        <div className='w-5/6 mx-auto'>
+        <div className='w-full pt-10 lg:py-0 lg:w-5/6 mx-auto'>
           <div className='flex gap-x-5 items-center pb-5'>
             <button
               className={`rounded-md ${
@@ -96,7 +103,7 @@ function RecipeDetail() {
             </div>
           )}
           {activeTab === 'ingredients' && (
-            <ul>
+            <ul className='px-5'>
               {recipeDetail &&
                 recipeDetail.extendedIngredients.map((recipe) => (
                   <li type='disc' key={recipe.id}>
@@ -107,7 +114,7 @@ function RecipeDetail() {
           )}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

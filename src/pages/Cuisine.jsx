@@ -1,5 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import { motion } from 'framer-motion';
+
 function Cuisine() {
   const [cuisine, setCuisine] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -49,7 +51,12 @@ function Cuisine() {
   }, [cuisineId, getCuisine]);
 
   return (
-    <div className=''>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.3 }}
+    >
       <h1 className='pb-6 text-2xl'>
         <span className='capitalize'>{cuisineId}</span> Cuisine
       </h1>
@@ -70,7 +77,7 @@ function Cuisine() {
             </Link>
           ))}
       </div>
-    </div>
+    </motion.div>
   );
 }
 

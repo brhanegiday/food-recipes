@@ -36,7 +36,7 @@ function Category() {
   };
 
   return (
-    <div className='flex justify-between items-center pb-10'>
+    <div className='lg:flex justify-between items-center pb-10'>
       <NavLink
         className='font-bold flex items-center gap-x-1.5'
         to={'/'}
@@ -45,8 +45,10 @@ function Category() {
         <GiOpenedFoodCan color='#b70916' size={20} />
         <span>Foodie</span>
       </NavLink>
+
       <Search />
-      <div className='flex items-center justify-center pb-5 gap-x-6'>
+
+      <div className='flex items-center gap-x-3 md:gap-x-6 py-6 lg:py-0'>
         {categories.map((cat) => (
           <NavLink
             className='flex items-center gap-x-1'

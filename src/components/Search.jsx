@@ -16,7 +16,7 @@ function Search() {
   };
   return (
     <form
-      className='relative justify-center mx-auto flex items-center w-fit'
+      className='relative flex items-center w-full md:w-fit  pt-6 lg:py-0'
       onSubmit={handleSearch}
     >
       <div className='absolute right-2 cursor-pointer'>
@@ -29,7 +29,7 @@ function Search() {
         </div>
       )}
       <input
-        className='w-[25rem] rounded-md pl-3 py-2 border border-gray-500'
+        className='w-full md:w-96 rounded-md pl-3 py-2 border border-gray-500'
         type='text'
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}

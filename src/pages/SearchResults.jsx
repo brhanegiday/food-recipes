@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 function SearchResults() {
   const [searchRecipe, setSearchRecipe] = useState([]);
@@ -50,7 +51,13 @@ function SearchResults() {
   }, [query, getRecipes]);
 
   return (
-    <div className='py-5'>
+    <motion.div
+      className='py-5'
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.3 }}
+    >
       <h1 className='pb-6 text-2xl'>
         <span className='capitalize'>{query}</span> Recipes
       </h1>
@@ -71,7 +78,7 @@ function SearchResults() {
             </Link>
           ))}
       </div>
-    </div>
+    </motion.div>
   );
 }
 
