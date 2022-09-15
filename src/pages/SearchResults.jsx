@@ -61,7 +61,7 @@ function SearchResults() {
       <div className='grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-y-6 gap-x-4 w-full mx-auto'>
         {searchRecipe &&
           searchRecipe.map((recipe) => (
-            <Link to={`cuisine/${query}`} key={recipe.id}>
+            <Link to={`/recipe/${recipe.id}`} key={recipe.id}>
               <img
                 className='w-full object-cover overflow-hidden h-52 rounded-lg'
                 src={recipe.image}

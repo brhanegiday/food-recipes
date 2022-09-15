@@ -1,5 +1,6 @@
 import { FaPizzaSlice, FaHamburger } from 'react-icons/fa';
 import { GiNoodles, GiChopsticks } from 'react-icons/gi';
+import { GiOpenedFoodCan } from 'react-icons/gi';
 import { NavLink } from 'react-router-dom';
 import Search from './Search';
 
@@ -37,11 +38,12 @@ function Category() {
   return (
     <div className='flex justify-between items-center pb-10'>
       <NavLink
-        className='font-bold'
+        className='font-bold flex items-center gap-x-1.5'
         to={'/'}
         style={({ isActive }) => (isActive ? activeStyle : undefined)}
       >
-        Home
+        <GiOpenedFoodCan color='#b70916' size={20} />
+        <span>Foodie</span>
       </NavLink>
       <Search />
       <div className='flex items-center justify-center pb-5 gap-x-6'>
